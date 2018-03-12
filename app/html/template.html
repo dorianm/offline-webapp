@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="dexieNgApp" ng-controller="rootController" lang="en">
+  <head>
+	<meta charset="utf-8">
+	<title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+
+  <body>
+
+    <p>
+        <strong>
+            <span ng-show="online">You're online</span>
+            <span ng-hide="online">You're offline</span>
+        </strong>
+    </p>
+
+    <div ng-if="online" ng-controller="syncController" ng-init="refreshCounter()">
+        <hr />
+        <h1>Fetch data</h1>
+
+        <p>Number of countries in our provider : {{numberInProvider}}</p>
+        <p>Number of countries in our database : {{numberInDatabase}}</p>
+
+        <input type="button" value="Fetch all countries" ng-click="sync()" />
+    </div>
+
+    <hr />
+
+    <div ng-controller="displayController" ng-init="extractFromDb()">
+        <h2>Retrieve data <small>(works offline)</small></h2>
+
+        <input type="button" value="Refresh" ng-click="extractFromDb()" />
+
+        <p>Countries:</p>
+        <ul>
+            <li ng-repeat="country in countries">{{country.code}} - {{country.name}}</li>
+        </ul>
+
+    </div>
+
+  </body>
+</html>
