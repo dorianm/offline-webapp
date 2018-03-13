@@ -1,6 +1,6 @@
 # Offline web application
 
-## What is this project
+## What is it
 
 This project is a minimal webapp which works offline. To allow this, it uses [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) and [Dexie](http://dexie.org/) (an [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) wrapper). 
 
