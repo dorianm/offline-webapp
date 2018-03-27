@@ -17,6 +17,7 @@
     "offline-app"
   ],
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.15",
     "angular": "^1.6.9",
     "dexie": "^2.0.1"
   },
