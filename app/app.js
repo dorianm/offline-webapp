@@ -12,4 +12,4 @@ if ('serviceWorker' in navigator) {
 /**
  * Import the angular application
  */
-import './js/ng-app';
+import './js/angular/ng-app';
