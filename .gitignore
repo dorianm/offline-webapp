@@ -7,3 +7,6 @@ dist/
 # SSL certificate
 server.cert
 key.pkey
+
+# Intellij file
+.idea
