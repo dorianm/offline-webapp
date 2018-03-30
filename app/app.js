@@ -9,7 +9,14 @@ if ('serviceWorker' in navigator) {
 //        .catch((err) => console.log(`Registration failed with ${err}`));
 }
 
-/**
- * Import the angular application
- */
-import './js/angular/ng-app';
+import angular from 'angular';
+import Databases from './js/db/Databases';
+import rootController from './js/ng/controller/rootController';
+import syncController from './js/ng/controller/sync/syncController';
+import displayController from './js/ng/controller/displayController';
+
+angular.module("ngApp", [])
+    .service('databaseService', Databases)
+    .controller('rootController', rootController)
+    .controller('displayController', displayController)
+    .controller('syncController', syncController);

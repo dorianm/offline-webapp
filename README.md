@@ -55,5 +55,5 @@ The webapp is now available at [https://127.0.0.1:8443](https://127.0.0.1:8443).
 
 ## Note
 
-The country list [countries.json](app/js/angular/controller/sync/countries.json) is coming from the [country-list project](https://github.com/fannarsh/country-list/).
+The country list [countries.json](app/js/ng/controller/sync/countries.json) is coming from the [country-list project](https://github.com/fannarsh/country-list/).
 

@@ -1,13 +1,11 @@
 "use strict";
 
-import angular from 'angular';
-
 /**
  * Root Controller. Controller attaché à la racine de l'application
  *
  * @param $rootScope
  */
-function rootController($rootScope) {
+export default function rootController($rootScope) {
 
     /**
      * It true, the naviagtor is online
@@ -28,7 +26,3 @@ function rootController($rootScope) {
     window.addEventListener("online", changeOnlineStatus);
 
 }
-
-export default angular.module('rootController', [])
-    .controller('rootController', rootController)
-    .name;
