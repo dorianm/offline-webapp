@@ -1,14 +1,13 @@
 "use strict";
 
 import angular from 'angular';
-import uiRouter from '@uirouter/angularjs';
-import rootControllerModule from './controller/rootController.js';
-import syncControllerModule from './controller/sync/syncController.js';
-import displayControllerModule from './controller/displayController.js';
+
+import rootController from './controller/rootController';
+import syncController from './controller/sync/syncController';
+import displayController from './controller/displayController';
 
 angular.module("ngApp", [
-    uiRouter,
-    rootControllerModule,
-    syncControllerModule,
-    displayControllerModule
+    rootController,
+    syncController,
+    displayController
 ]);

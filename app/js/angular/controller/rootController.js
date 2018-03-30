@@ -2,8 +2,6 @@
 
 import angular from 'angular';
 
-let rootControllerModule = angular.module("rootController", []).controller("rootController", rootController);
-
 /**
  * Root Controller. Controller attaché à la racine de l'application
  *
@@ -31,4 +29,6 @@ function rootController($rootScope) {
 
 }
 
-export default rootControllerModule;
+export default angular.module('rootController', [])
+    .controller('rootController', rootController)
+    .name;

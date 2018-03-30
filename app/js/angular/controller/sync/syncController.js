@@ -3,8 +3,6 @@
 import angular from 'angular';
 import countries from "./countries.json";
 
-let syncControllerModule = angular.module("syncController", []).controller("syncController", syncController);
-
 /**
  * Sync Controller. Controller gérant la synchronisation
  *
@@ -48,4 +46,6 @@ function syncController($rootScope, $scope) {
 
 }
 
-export default syncControllerModule;
+export default angular.module("syncController", [])
+    .controller("syncController", syncController)
+    .name;

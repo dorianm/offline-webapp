@@ -2,8 +2,6 @@
 
 import angular from 'angular';
 
-let displayControllerModule = angular.module("rootController", []).controller("displayController", displayController);
-
 /**
  * Root Controller. Controller attaché à la racine de l'application
  *
@@ -28,4 +26,6 @@ function displayController($rootScope, $scope) {
 
 }
 
-export default displayControllerModule;
+export default angular.module("displayController", [])
+    .controller("displayController", displayController)
+    .name;
