@@ -1,15 +1,11 @@
 "use strict";
 
-import angular from 'angular';
 import countries from "./countries.json";
 
 /**
  * Sync Controller. Controller gérant la synchronisation
- *
- * @param $rootScope Scope racine
- * @param $scope Scope du controller
  */
-function syncController($rootScope, $scope) {
+export default function syncController($scope, databaseService) {
 
     /**
      * Number of countries available in our database;
@@ -30,7 +26,8 @@ function syncController($rootScope, $scope) {
      * Refesh the counters
      */
     $scope.refreshCounter = () => {
-        $rootScope.db.get().countries.count(number => $scope.$apply(() => $scope.numberInDatabase = number));
+        databaseService.get('data').getTable('countries').count(number =>
+            $scope.$apply(() => $scope.numberInDatabase = number));
         $scope.numberInProvider = countries.length;
     };
 
@@ -38,14 +35,10 @@ function syncController($rootScope, $scope) {
      * Run a sync beetween our countries provider and our local database
      */
     $scope.sync = () => {
-        let table = $rootScope.db.get().countries;
+        let table = databaseService.get('data').getTable('countries');
         table.clear()
             .then(() => table.bulkAdd(countries))
             .then(() => $scope.refreshCounter());
     }
 
 }
-
-export default angular.module("syncController", [])
-    .controller("syncController", syncController)
-    .name;
