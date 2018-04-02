@@ -16,7 +16,7 @@ import syncController from './js/ng/controller/sync/syncController';
 import displayController from './js/ng/controller/displayController';
 
 angular.module("ngApp", [])
-    .service('databaseService', Databases)
+    .service('dbService', Databases)
     .controller('rootController', rootController)
     .controller('displayController', displayController)
     .controller('syncController', syncController);

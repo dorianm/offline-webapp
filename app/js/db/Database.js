@@ -1,17 +1,16 @@
 "use strict";
 
 /**
- * Import of Dexie, an IndexedDB wrapper
+ * Database class, hold a Dexie database object
  */
-import Dexie from 'dexie';
-
 export default class Database {
 
     /**
      * Ctor.
      */
-    constructor(db) {
+    constructor(db, $log) {
         this.db = db;
+        this.$log = $log;
         this.open();
     }
 
@@ -19,7 +18,9 @@ export default class Database {
      * Open the database. Called in the constructor, no need to call it manually.
      */
     open() {
-        this.db.open().catch(error => alert(`Error while opening the database ${this.db.name} : ${error}`));
+        this.db.open()
+            .then(() => this.$log.info(`The database ${this.db.name} has been opened`))
+            .catch(error => this.$log.error(`Error while opening the database ${this.db.name} : ${error}`));
     }
 
     /**
@@ -27,7 +28,7 @@ export default class Database {
      *
      * @type {Dexie} Dexie database
      */
-    getDatabase() {
+    getDb() {
         return this.db;
     }
 
@@ -37,7 +38,7 @@ export default class Database {
      * @param table
      * @returns {*}
      */
-    getTable(table) {
+    get(table) {
         return this.db[table];
     }
 

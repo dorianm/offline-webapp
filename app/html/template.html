@@ -6,7 +6,6 @@
   </head>
 
   <body>
-
     <p>
         <strong>
             <span ng-show="online">You're online</span>
@@ -17,10 +16,7 @@
     <div ng-if="online" ng-controller="syncController" ng-init="refreshCounter()">
         <hr />
         <h1>Fetch data</h1>
-
-        <p>Number of countries in our provider : {{numberInProvider}}</p>
         <p>Number of countries in our database : {{numberInDatabase}}</p>
-
         <input type="button" value="Fetch all countries" ng-click="sync()" />
     </div>
 
