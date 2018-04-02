@@ -3,7 +3,7 @@
 /**
  * Display Controller. Controller gérant l'affichage des informations
  */
-export default function displayController($scope, databaseService) {
+export default function displayController($scope, dbService) {
 
     /**
      * Countries
@@ -17,9 +17,7 @@ export default function displayController($scope, databaseService) {
      */
     $scope.extractFromDb = () => {
         $scope.countries = [];
-        databaseService.get('data').getTable("countries").each(country =>
-            $scope.$apply(() => $scope.countries.push(country))
-        );
+        dbService.get('data').get("countries").each(country => $scope.$apply(() => $scope.countries.push(country)));
     };
 
 }

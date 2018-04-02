@@ -14,16 +14,16 @@ const DB_NAME = "data";
  *
  * @type {Dexie}
  */
-export const DB = new Dexie(DB_NAME);
+const DB = new Dexie(DB_NAME);
 
 /**
- * Data database init function.
+ * Data database init.
  *
  * See http://dexie.org/docs/Tutorial/Design#database-versioning for more information
  */
-export const init = () => {
-    DB.version(1).stores({
-        countries: "code",
-        pokemon: "id, name"
-    });
-};
+DB.version(1).stores({
+    countries: "code",
+    pokemon: "id, name"
+});
+
+export default DB;
