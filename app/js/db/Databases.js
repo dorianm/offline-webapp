@@ -23,11 +23,11 @@ class Databases {
     /**
      * Return a database
      *
-     * @param databaseName
+     * @param dbName
      * @returns {Database}
      */
-    get(databaseName) {
-        return this.db[databaseName];
+    get(dbName) {
+        return this.db[dbName];
     }
 
 }
