@@ -5,24 +5,21 @@
  *
  * @param $rootScope
  */
-export default function rootController($rootScope) {
+export default function rootController($rootScope, $log, networkService) {
 
     /**
      * It true, the naviagtor is online
      *
      * @type {boolean}
      */
-    $rootScope.online = navigator.onLine;
+    $rootScope.online = networkService.isOnline();
 
     /**
-     * Change the online status stored in $rootScope
+     * Watch the online status (in the networkService service)
      */
-    let changeOnlineStatus = () => $rootScope.$apply(() => $rootScope.online = navigator.onLine);
-
-    /**
-     * Listen events to change the value of our "online" variable
-     */
-    window.addEventListener("offline", changeOnlineStatus);
-    window.addEventListener("online", changeOnlineStatus);
+    $rootScope.$watch(
+        () => networkService.isOnline(),
+        (value) => $rootScope.online = value,
+        true);
 
 }
