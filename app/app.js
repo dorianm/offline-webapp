@@ -3,6 +3,7 @@
 /**
  * Register the service worker (works only in HTTPS)
  */
+
 if ('serviceWorker' in navigator) {
 //    navigator.serviceWorker.register(`/sw.${__VERSION__}.js`)
 //        .then((reg) => console.log(`Registration succeeded. Scope is ${reg.scope}`))
@@ -11,12 +12,14 @@ if ('serviceWorker' in navigator) {
 
 import angular from 'angular';
 import Databases from './js/db/Databases';
+import Network from "./js/ng/service/Network";
 import rootController from './js/ng/controller/rootController';
 import syncController from './js/ng/controller/sync/syncController';
 import displayController from './js/ng/controller/displayController';
 
 angular.module("ngApp", [])
     .service('dbService', Databases)
+    .service('networkService', Network)
     .controller('rootController', rootController)
     .controller('displayController', displayController)
     .controller('syncController', syncController);
