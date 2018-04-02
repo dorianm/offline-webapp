@@ -17,7 +17,7 @@ export default function rootController($rootScope) {
     /**
      * Change the online status stored in $rootScope
      */
-    let changeOnlineStatus = () => $rootScope.apply(() => $rootScope.online = navigator.onLine);
+    let changeOnlineStatus = () => $rootScope.$apply(() => $rootScope.online = navigator.onLine);
 
     /**
      * Listen events to change the value of our "online" variable
